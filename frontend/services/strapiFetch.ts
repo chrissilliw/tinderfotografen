@@ -16,6 +16,7 @@ type BlockComponent =
   "layout.step-by-step-section" |
   "layout.faq-section";
 
+
 const queryMap: { [key in BlockComponent]: any } = {
     "layout.hero-section": heroSectionQuery,
     "layout.feature-section": featureSectionQuery,
@@ -25,111 +26,38 @@ const queryMap: { [key in BlockComponent]: any } = {
     "layout.faq-section": faqSectionQuery,
   };
 
-  export const createDynamicQuery = (blocks: any[]) => {
-    const dynamicQuery = blocks.reduce((acc: any, block: any) => {
-        // if (block.__component in queryMap) {
-        //     console.log("funkar");
-        //     const query = queryMap[block.__component as BlockComponent];
-        //     return query ? query.populate : {};
-        // }
-        // return {};
-
-        // switch (block.__component) {
-            // case 'layout.hero-section':
-            //     return heroSectionQuery;
-
-            // case 'layout.feature-section': 
-            //     return featureSectionQuery;
-
-            // case 'layout.image-info-section':
-            //     return imageInfoSectionQuery;
-
-            // case 'layout.testimonial-section':
-            //     return testimonialSectionQuery;
-
-            // case 'layout.step-by-step-section':
-            //     return stepByStepSectionQuery;
-
-            // case 'layout.faq-section':
-            //     return faqSectionQuery;
-
-        //     default: 
-        //         return {};
-        // }
-
-    //     switch (block.__component) {
-    //         case 'layout.image-info-section':
-    //             acc[block.__component] = imageInfoSectionQuery;
-    //             break;
-
-    //         case 'layout.feature-section':
-    //             acc[block.__component] = featureSectionQuery;
-    //             break;
-
-    //         case 'layout.hero-section':
-    //             acc[block.__component] = heroSectionQuery;
-    //             break;
-
-    //         default:
-    //             acc[block.__component] = {}; // Standardvärde om komponenten inte matchar någon query
-    //     }
-    //     return acc;
-    // }, {});
-    
-    const combinedQuery = {
-        populate: {
-            blocks: {
-                populate: '*',
+const combinedQuery = {
+    populate: {
+        blocks: {
+            populate: 
+            {   
+                ...featureSectionQuery.populate,
+                ...imageInfoSectionQuery.populate,
+                ...testimonialSectionQuery.populate,
+                ...heroSectionQuery.populate,
+                ...stepByStepSectionQuery.populate,
+                ...faqSectionQuery.populate,
+            },
         },
-        },
-    };
-
-    // console.log("Combined Query:", combinedQuery);
-    console.log('Blocks: ', blocks);
-    return combinedQuery;
-
-  };
-
-// const combinedQuery = {
-//     populate: {
-//         blocks: {
-//             populate:
-//             {
-//                 ...heroSectionQuery.populate,
-//                 ...featureSectionQuery.populate,
-//                 ...imageInfoSectionQuery.populate,
-//                 ...sectionTitleQuery.populate,
-//                 ...testimonialSectionQuery.populate,
-//                 ...stepByStepSectionQuery.populate,
-//                 ...faqSectionQuery.populate,
-//             },
-//         },
-//     },
-// }
+    },
+}
 
 
-// export const homePageQuery = qs.stringify(combinedQuery);
+export const homePageQuery = qs.stringify(combinedQuery);
 
-// const dynamicQuery = blocks.map(( blocks:any) => {
-//     if (block.__component in queryMap) {
-//         const query = queryMap[block.__component as BlockComponent];
-//         return query ? query.populate : {};
-//     }
-//     return {};
-// })
-
-export const getStrapiData = async (path: string, blocks: any[]) => {
+// export const getStrapiData = async (path: string, blocks: any[]) => {
+export const getStrapiData = async (path: string) => {
     const baseUrl = "http://localhost:1337";
 
-    const dynamicQuery = createDynamicQuery(blocks);
+    // const dynamicQuery = createDynamicQuery(blocks);
 
     // console.log("Dynamic Query: ", dynamicQuery)
 
-    const queryString = qs.stringify(dynamicQuery);
+    // const queryString = qs.stringify(dynamicQuery);
 
     const url = new URL(path, baseUrl);
     // url.search = homePageQuery;
-    url.search = queryString;
+    url.search = homePageQuery;
 
     try{
         const response = await fetch(url.href);
@@ -174,35 +102,35 @@ export const fetchTopNavMenu = async () => {
         return res;
     }; 
 
-export const fetchFeatureSection = async () => {
-    const queryString = "/api/home-page?populate[blocks][populate][infoColumn][populate][feature][populate][icon][fields][0]=url&populate[blocks][populate][infoColumn][populate][feature][populate][icon][fields][1]=alternativeText&populate[blocks][populate][infoColumn][populate][readMore][populate]=true";
-    const query = ({
-        populate: {
-            blocks: {
-                populate: {
-                    infoColumn: {
-                        populate: {
-                            feature: {
-                                populate: {
-                                    icon: {
-                                        fields: ["url", "alternativeText"]
-                                    },
-                                }
-                            },
-                            readMore: {
-                                populate: true
-                            },
-                        }
-                    },
+// export const fetchFeatureSection = async () => {
+//     const queryString = "/api/home-page?populate[blocks][populate][infoColumn][populate][feature][populate][icon][fields][0]=url&populate[blocks][populate][infoColumn][populate][feature][populate][icon][fields][1]=alternativeText&populate[blocks][populate][infoColumn][populate][readMore][populate]=true";
+//     const query = ({
+//         populate: {
+//             blocks: {
+//                 populate: {
+//                     infoColumn: {
+//                         populate: {
+//                             feature: {
+//                                 populate: {
+//                                     icon: {
+//                                         fields: ["url", "alternativeText"]
+//                                     },
+//                                 }
+//                             },
+//                             readMore: {
+//                                 populate: true
+//                             },
+//                         }
+//                     },
                 
-                },
-            }
-        },
-    });
+//                 },
+//             }
+//         },
+//     });
 
-    const req = await fetch(`${getStrapiURL}${queryString}`);
-    const res = await req.json();
-    const flattendData = flattenAttributes(res)
-    // console.log(flattendData);
-    return flattendData;
-}
+//     const req = await fetch(`${getStrapiURL}${queryString}`);
+//     const res = await req.json();
+//     const flattendData = flattenAttributes(res)
+//     // console.log(flattendData);
+//     return flattendData;
+// }

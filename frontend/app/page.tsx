@@ -1,6 +1,6 @@
 // "use client";
 import { getStrapiData } from "@/services/strapiFetch";
-import { fetchFeatureSection } from "@/services/strapiFetch";
+// import { fetchFeatureSection } from "@/services/strapiFetch";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IData } from "./models/IHeroSection";
@@ -23,28 +23,23 @@ function blockRenderer(block: any) {
       return <ImageInfoSection key={block.id} data={block} />;
     case "layout.step-by-step-section":
       return <StepByStepSection key={block.id} data={block} />;
+    case "layout.testimonial-section":
+      return <TestimonialSection key={block.id} data={block} />;
+    case "layout.faq-section":
+      return <FaqSection key={block.id} data={block} />;
     default:
       return null;
   }
 }
 
 export default async function Home() {
-  const blockComponents = {
-    "layout.hero-section": HeroSection,
-    "layout.feature-section": FeatureSection,
-    "layout.image-info-section": ImageInfoSection,
-    "layout.step-by-step-section": StepByStepSection,
-    "layout.testimonial-section": TestimonialSection,
-    "layout.faq-section": FaqSection,
-  };
-
-  const initialData = await getStrapiData("/api/home-page", []);
+  // const initialData = await getStrapiData("/api/home-page", []);
 
   // console.log("Initial data: ", initialData);
 
-  const blocks = initialData?.blocks || [];
+  // const blocks = initialData?.blocks || [];
 
-  const strapiData = await getStrapiData("/api/home-page", blocks);
+  const strapiData = await getStrapiData("/api/home-page");
 
   const baseURL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
@@ -52,7 +47,7 @@ export default async function Home() {
     return <p>Loading...</p>;
   }
 
-  // const { blocks } = strapiData;
+  const { blocks } = strapiData;
   // console.log("strapiData här borta: ", title);
 
   if (!blocks) {

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_image_sections",
+  "info": {
+    "displayName": "Image Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "displayName": "Image",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.image"
+    }
+  }
+}

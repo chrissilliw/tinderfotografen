@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_elements_logo_grids",
+  "info": {
+    "displayName": "Logo Grid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

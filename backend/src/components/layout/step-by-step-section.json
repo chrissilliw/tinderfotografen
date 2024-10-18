@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_layout_step_by_step_sections",
+  "info": {
+    "displayName": "Step By Step Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.section-title"
+    },
+    "howItWorks_card": {
+      "displayName": "How it Works - Card",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.how-it-works-card"
+    },
+    "readMore": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button-link"
+    }
+  }
+}

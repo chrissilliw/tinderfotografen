@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_layout_image_info_sections",
+  "info": {
+    "displayName": "Image/Info Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "infoSection": {
+      "displayName": "Info Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.info-section",
+      "required": true
+    },
+    "readMore": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button-link"
+    },
+    "imagePositioning": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "left"
+    }
+  }
+}

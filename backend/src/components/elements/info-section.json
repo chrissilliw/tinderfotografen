@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_info_sections",
+  "info": {
+    "displayName": "Info Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    }
+  }
+}

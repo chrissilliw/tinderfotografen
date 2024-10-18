@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_info_columns",
+  "info": {
+    "displayName": "Info Column"
+  },
+  "options": {},
+  "attributes": {
+    "feature": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.feature"
+    },
+    "readMore": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button-link"
+    }
+  }
+}

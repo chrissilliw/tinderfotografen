@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_elements_socials",
+  "info": {
+    "displayName": "socials"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "socalLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.link"
+    }
+  }
+}

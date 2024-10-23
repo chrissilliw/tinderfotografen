@@ -29,6 +29,9 @@ const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 5;
 
 const TestimonialSection = ({ data }: Readonly<TestimonialSectionProps>) => {
+  if (!data || !data.sectionTitle || !data.testimonial) {
+    return <div>No Testimonial data available</div>;
+  }
   const [dragging, setDragging] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
 
@@ -111,7 +114,6 @@ const TestimonialSection = ({ data }: Readonly<TestimonialSectionProps>) => {
                   className="object-cover"
                   height={70}
                   width={70}
-                  // layout="intrinsic"
                   // style={{ width: "30", height: "auto" }}
                 />
               </div>
@@ -122,7 +124,6 @@ const TestimonialSection = ({ data }: Readonly<TestimonialSectionProps>) => {
                   className="object-cover"
                   height={50}
                   width={50}
-                  // layout="intrinsic"
                   // style={{ width: "30", height: "auto" }}
                 />
               </div>

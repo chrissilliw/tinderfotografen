@@ -27,7 +27,9 @@
         "layout.testimonial-section",
         "layout.step-by-step-section",
         "layout.faq-section",
-        "layout.image-section"
+        "layout.image-section",
+        "elements.heading-and-image",
+        "elements.social-and-text-section"
       ]
     }
   }

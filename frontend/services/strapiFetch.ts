@@ -7,47 +7,50 @@ import { testimonialSectionQuery } from "./queries/testimonialSectionQuery.ts";
 import { sectionTitleQuery } from "./queries/sectionTitleQuery";
 import { stepByStepSectionQuery } from "./queries/stepByStepSectionQuery";
 import { faqSectionQuery } from "./queries/faqSectionQuery";
+import HeroSection from "@/app/components/custom/HeroSection";
+import { headingAndImageSectionQuery } from "./queries/aboutSectionQuery";
 
-type BlockComponent = 
-  "layout.hero-section" | 
-  "layout.feature-section" | 
-  "layout.image-info-section" |
-  "layout.testimonial-section" |
-  "layout.step-by-step-section" |
-  "layout.faq-section";
-
-
-const queryMap: { [key in BlockComponent]: any } = {
-    "layout.hero-section": heroSectionQuery,
-    "layout.feature-section": featureSectionQuery,
-    "layout.image-info-section": imageInfoSectionQuery,
-    "layout.testimonial-section": testimonialSectionQuery,
-    "layout.step-by-step-section": stepByStepSectionQuery,
-    "layout.faq-section": faqSectionQuery,
-  };
+// type BlockComponent = 
+//   "layout.hero-section" | 
+//   "layout.feature-section" | 
+//   "layout.image-info-section" |
+//   "layout.testimonial-section" |
+//   "layout.step-by-step-section" |
+//   "layout.faq-section";
 
 const combinedQuery = {
     populate: {
-        blocks: {
-            populate: 
+        blocks: 
+        {
+            populate:
             {   
-                ...featureSectionQuery.populate,
-                ...imageInfoSectionQuery.populate,
-                ...testimonialSectionQuery.populate,
                 ...heroSectionQuery.populate,
+                ...featureSectionQuery.populate,
+                ...imageInfoSectionQuery.populate, 
                 ...stepByStepSectionQuery.populate,
                 ...faqSectionQuery.populate,
+                ...testimonialSectionQuery.populate,
+                ...headingAndImageSectionQuery.populate,
             },
         },
     },
 }
 
+// const aboutCombinedQuery = {
+//     populate: {
+//         blocks: {
+//             populate: {
+//                 ...headingAndImageSectionQuery.populate
+//             }
+//         }
+//     }
+// }
 
-export const homePageQuery = qs.stringify(combinedQuery);
 
-// export const getStrapiData = async (path: string, blocks: any[]) => {
+export const homePageQuery = qs.stringify(combinedQuery, {encodeValuesOnly: true});
+
 export const getStrapiData = async (path: string) => {
-    const baseUrl = "http://localhost:1337";
+    const baseUrl = "http://localhost:1337";;
 
     // const dynamicQuery = createDynamicQuery(blocks);
 
@@ -61,6 +64,9 @@ export const getStrapiData = async (path: string) => {
 
     try{
         const response = await fetch(url.href);
+        if( !response.ok) {
+            throw new Error(`Failed to fetch data from Strapi: ${response.status}`); 
+        }
         const data = await response.json();
         const flattenData = flattenAttributes(data);
         // console.dir(flattenData, {depth: null});

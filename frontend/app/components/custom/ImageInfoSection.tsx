@@ -32,7 +32,15 @@ interface ImageInfoProps {
 }
 
 const ImageInfoSection = ({ data }: Readonly<ImageInfoProps>) => {
-  // if(!data || !data)
+  if (
+    !data ||
+    !data.image ||
+    !data.imagePositioning ||
+    !data.infoSection ||
+    !data.readMore
+  ) {
+    return <div>No Image/Info data available</div>;
+  }
   console.dir(data, { depth: null });
   return (
     <div className="my-20 mx-auto max-sm:px-3 lg:max-w-6xl">

@@ -126,6 +126,39 @@ export interface ElementsTestFeature extends Schema.Component {
   };
 }
 
+export interface ElementsSocials extends Schema.Component {
+  collectionName: 'components_elements_socials';
+  info: {
+    displayName: 'socials';
+  };
+  attributes: {
+    title: Attribute.String;
+    socalLink: Attribute.Component<'elements.link', true>;
+  };
+}
+
+export interface ElementsSocialGroup extends Schema.Component {
+  collectionName: 'components_elements_social_groups';
+  info: {
+    displayName: 'Social Group';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    socialLink: Attribute.Component<'elements.link', true>;
+  };
+}
+
+export interface ElementsSocialAndTextSection extends Schema.Component {
+  collectionName: 'components_elements_social_and_text_sections';
+  info: {
+    displayName: 'Social and Text Section';
+  };
+  attributes: {
+    socials: Attribute.Component<'elements.socials'>;
+  };
+}
+
 export interface ElementsSectionTitle extends Schema.Component {
   collectionName: 'components_elements_section_titles';
   info: {
@@ -218,6 +251,30 @@ export interface ElementsHowItWorksCard extends Schema.Component {
   };
 }
 
+export interface ElementsHeadingGroup extends Schema.Component {
+  collectionName: 'components_elements_heading_groups';
+  info: {
+    displayName: 'Heading Group';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String;
+    image: Attribute.Media<'images'>;
+  };
+}
+
+export interface ElementsHeadingAndImage extends Schema.Component {
+  collectionName: 'components_elements_heading_and_images';
+  info: {
+    displayName: 'Heading and Image Section';
+    description: '';
+  };
+  attributes: {
+    headingGroup: Attribute.Component<'elements.heading-group'>;
+    image: Attribute.Media<'images'>;
+  };
+}
+
 export interface ElementsFeature extends Schema.Component {
   collectionName: 'components_elements_features';
   info: {
@@ -254,6 +311,14 @@ export interface ElementsButtonLink extends Schema.Component {
   };
 }
 
+export interface ElementsAboutComponent extends Schema.Component {
+  collectionName: 'components_elements_about_components';
+  info: {
+    displayName: 'About Component';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -267,6 +332,9 @@ declare module '@strapi/types' {
       'layout.faq-section': LayoutFaqSection;
       'elements.testimonial': ElementsTestimonial;
       'elements.test-feature': ElementsTestFeature;
+      'elements.socials': ElementsSocials;
+      'elements.social-group': ElementsSocialGroup;
+      'elements.social-and-text-section': ElementsSocialAndTextSection;
       'elements.section-title': ElementsSectionTitle;
       'elements.logo-link': ElementsLogoLink;
       'elements.logo-grid': ElementsLogoGrid;
@@ -275,9 +343,12 @@ declare module '@strapi/types' {
       'elements.info-column': ElementsInfoColumn;
       'elements.image': ElementsImage;
       'elements.how-it-works-card': ElementsHowItWorksCard;
+      'elements.heading-group': ElementsHeadingGroup;
+      'elements.heading-and-image': ElementsHeadingAndImage;
       'elements.feature': ElementsFeature;
       'elements.faq': ElementsFaq;
       'elements.button-link': ElementsButtonLink;
+      'elements.about-component': ElementsAboutComponent;
     }
   }
 }

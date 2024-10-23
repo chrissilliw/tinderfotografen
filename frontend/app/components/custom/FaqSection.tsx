@@ -37,6 +37,11 @@ const FaqSection = ({ data }: Readonly<FaqInfoProps>) => {
     },
   };
 
+  if (!data || !data.faq || !data.sectionTitle) {
+    return <div>No FAQ data available</div>;
+  }
+  console.dir(data, { depth: null });
+
   return (
     <>
       <div className="py-[75px] bg-[#F8F8F8]">
@@ -45,8 +50,8 @@ const FaqSection = ({ data }: Readonly<FaqInfoProps>) => {
             {data.sectionTitle.sectionTitle}
           </h3>
           <div className="flex flex-col gap-4">
-            {data.faq.map((question) => (
-              <div>
+            {data.faq.map((question, index) => (
+              <div key={index}>
                 <button
                   key={question.id}
                   className="w-full text-left text-xl focus:outline-none py-5 px-8 rounded-2xl shadow-lg flex justify-between items-center bg-white"

@@ -29,6 +29,9 @@ interface CardInfoProps {
 }
 
 const StepByStepSection = ({ data }: Readonly<CardInfoProps>) => {
+  if (!data || !data.sectionTitle || !data.howItWorks_card || !data.readMore) {
+    return <div>No Step By Step data available</div>;
+  }
   return (
     <>
       <div className="my-20 mx-auto max-sm:px-3 lg:max-w-6xl">

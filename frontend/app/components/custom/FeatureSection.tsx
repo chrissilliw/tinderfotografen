@@ -62,7 +62,7 @@ const FeatureSection = ({ data }: Readonly<IFeatureSectionProps>) => {
 
           <div className="flex flex-col items-start gap-2 w-[350px]">
             <Image
-              src={`http://localhost:1337${data.infoColumn[1].feature.icon.url}`}
+              src={`http://localhost:1337/${data.infoColumn[1].feature.icon.url}`}
               alt={`http://localhost:1337${data.infoColumn[1].feature.icon.alternativeText}`}
               className="object-contain"
               height={0}

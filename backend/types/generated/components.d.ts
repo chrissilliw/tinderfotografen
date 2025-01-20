@@ -37,6 +37,18 @@ export interface LayoutStepByStepSection extends Schema.Component {
   };
 }
 
+export interface LayoutSocialAndTextSection extends Schema.Component {
+  collectionName: 'components_layout_social_and_text_sections';
+  info: {
+    displayName: 'Social and Text Section';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.Text;
+    socials: Attribute.Component<'elements.socials'>;
+  };
+}
+
 export interface LayoutImageSection extends Schema.Component {
   collectionName: 'components_layout_image_sections';
   info: {
@@ -76,6 +88,17 @@ export interface LayoutHeroSection extends Schema.Component {
     image: Attribute.Media<'images'>;
     cta: Attribute.Component<'elements.button-link'>;
     logoGrid: Attribute.Component<'elements.logo-grid', true>;
+  };
+}
+
+export interface LayoutHeadingAndImageSection extends Schema.Component {
+  collectionName: 'components_layout_heading_and_image_sections';
+  info: {
+    displayName: 'Heading and Image Section';
+  };
+  attributes: {
+    headingGroup: Attribute.Component<'elements.heading-group'>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -123,6 +146,29 @@ export interface ElementsTestFeature extends Schema.Component {
   attributes: {
     feature: Attribute.Component<'elements.feature'>;
     readMore: Attribute.Component<'elements.button-link'>;
+  };
+}
+
+export interface ElementsSocials extends Schema.Component {
+  collectionName: 'components_elements_socials';
+  info: {
+    displayName: 'Socials';
+  };
+  attributes: {
+    title: Attribute.String;
+    socialLink: Attribute.Component<'elements.link', true>;
+  };
+}
+
+export interface ElementsSocialGroup extends Schema.Component {
+  collectionName: 'components_elements_social_groups';
+  info: {
+    displayName: 'Social Group';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    socialLink: Attribute.Component<'elements.link', true>;
   };
 }
 
@@ -218,6 +264,30 @@ export interface ElementsHowItWorksCard extends Schema.Component {
   };
 }
 
+export interface ElementsHeadingGroup extends Schema.Component {
+  collectionName: 'components_elements_heading_groups';
+  info: {
+    displayName: 'Heading Group';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.String;
+    image: Attribute.Media<'images'>;
+  };
+}
+
+export interface ElementsHeadingAndImage extends Schema.Component {
+  collectionName: 'components_elements_heading_and_images';
+  info: {
+    displayName: 'Heading and Image Section';
+    description: '';
+  };
+  attributes: {
+    headingGroup: Attribute.Component<'elements.heading-group'>;
+    image: Attribute.Media<'images'>;
+  };
+}
+
 export interface ElementsFeature extends Schema.Component {
   collectionName: 'components_elements_features';
   info: {
@@ -254,19 +324,31 @@ export interface ElementsButtonLink extends Schema.Component {
   };
 }
 
+export interface ElementsAboutComponent extends Schema.Component {
+  collectionName: 'components_elements_about_components';
+  info: {
+    displayName: 'About Component';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'layout.top-nav': LayoutTopNav;
       'layout.testimonial-section': LayoutTestimonialSection;
       'layout.step-by-step-section': LayoutStepByStepSection;
+      'layout.social-and-text-section': LayoutSocialAndTextSection;
       'layout.image-section': LayoutImageSection;
       'layout.image-info-section': LayoutImageInfoSection;
       'layout.hero-section': LayoutHeroSection;
+      'layout.heading-and-image-section': LayoutHeadingAndImageSection;
       'layout.feature-section': LayoutFeatureSection;
       'layout.faq-section': LayoutFaqSection;
       'elements.testimonial': ElementsTestimonial;
       'elements.test-feature': ElementsTestFeature;
+      'elements.socials': ElementsSocials;
+      'elements.social-group': ElementsSocialGroup;
       'elements.section-title': ElementsSectionTitle;
       'elements.logo-link': ElementsLogoLink;
       'elements.logo-grid': ElementsLogoGrid;
@@ -275,9 +357,12 @@ declare module '@strapi/types' {
       'elements.info-column': ElementsInfoColumn;
       'elements.image': ElementsImage;
       'elements.how-it-works-card': ElementsHowItWorksCard;
+      'elements.heading-group': ElementsHeadingGroup;
+      'elements.heading-and-image': ElementsHeadingAndImage;
       'elements.feature': ElementsFeature;
       'elements.faq': ElementsFaq;
       'elements.button-link': ElementsButtonLink;
+      'elements.about-component': ElementsAboutComponent;
     }
   }
 }

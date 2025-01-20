@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_elements_social_groups",
+  "info": {
+    "displayName": "Social Group",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "socialLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.link"
+    }
+  }
+}

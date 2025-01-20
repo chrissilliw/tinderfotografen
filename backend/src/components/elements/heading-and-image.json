@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_heading_and_images",
+  "info": {
+    "displayName": "Heading and Image Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "headingGroup": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.heading-group"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

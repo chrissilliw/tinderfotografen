@@ -37,6 +37,18 @@ export interface LayoutStepByStepSection extends Schema.Component {
   };
 }
 
+export interface LayoutSocialAndTextSection extends Schema.Component {
+  collectionName: 'components_layout_social_and_text_sections';
+  info: {
+    displayName: 'Social and Text Section';
+    description: '';
+  };
+  attributes: {
+    text: Attribute.Text;
+    socials: Attribute.Component<'elements.socials'>;
+  };
+}
+
 export interface LayoutImageSection extends Schema.Component {
   collectionName: 'components_layout_image_sections';
   info: {
@@ -76,6 +88,17 @@ export interface LayoutHeroSection extends Schema.Component {
     image: Attribute.Media<'images'>;
     cta: Attribute.Component<'elements.button-link'>;
     logoGrid: Attribute.Component<'elements.logo-grid', true>;
+  };
+}
+
+export interface LayoutHeadingAndImageSection extends Schema.Component {
+  collectionName: 'components_layout_heading_and_image_sections';
+  info: {
+    displayName: 'Heading and Image Section';
+  };
+  attributes: {
+    headingGroup: Attribute.Component<'elements.heading-group'>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -129,11 +152,11 @@ export interface ElementsTestFeature extends Schema.Component {
 export interface ElementsSocials extends Schema.Component {
   collectionName: 'components_elements_socials';
   info: {
-    displayName: 'socials';
+    displayName: 'Socials';
   };
   attributes: {
     title: Attribute.String;
-    socalLink: Attribute.Component<'elements.link', true>;
+    socialLink: Attribute.Component<'elements.link', true>;
   };
 }
 
@@ -146,16 +169,6 @@ export interface ElementsSocialGroup extends Schema.Component {
   attributes: {
     title: Attribute.String;
     socialLink: Attribute.Component<'elements.link', true>;
-  };
-}
-
-export interface ElementsSocialAndTextSection extends Schema.Component {
-  collectionName: 'components_elements_social_and_text_sections';
-  info: {
-    displayName: 'Social and Text Section';
-  };
-  attributes: {
-    socials: Attribute.Component<'elements.socials'>;
   };
 }
 
@@ -325,16 +338,17 @@ declare module '@strapi/types' {
       'layout.top-nav': LayoutTopNav;
       'layout.testimonial-section': LayoutTestimonialSection;
       'layout.step-by-step-section': LayoutStepByStepSection;
+      'layout.social-and-text-section': LayoutSocialAndTextSection;
       'layout.image-section': LayoutImageSection;
       'layout.image-info-section': LayoutImageInfoSection;
       'layout.hero-section': LayoutHeroSection;
+      'layout.heading-and-image-section': LayoutHeadingAndImageSection;
       'layout.feature-section': LayoutFeatureSection;
       'layout.faq-section': LayoutFaqSection;
       'elements.testimonial': ElementsTestimonial;
       'elements.test-feature': ElementsTestFeature;
       'elements.socials': ElementsSocials;
       'elements.social-group': ElementsSocialGroup;
-      'elements.social-and-text-section': ElementsSocialAndTextSection;
       'elements.section-title': ElementsSectionTitle;
       'elements.logo-link': ElementsLogoLink;
       'elements.logo-grid': ElementsLogoGrid;

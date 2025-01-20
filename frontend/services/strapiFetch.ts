@@ -7,16 +7,16 @@ import { testimonialSectionQuery } from "./queries/testimonialSectionQuery.ts";
 import { sectionTitleQuery } from "./queries/sectionTitleQuery";
 import { stepByStepSectionQuery } from "./queries/stepByStepSectionQuery";
 import { faqSectionQuery } from "./queries/faqSectionQuery";
-import HeroSection from "@/app/components/custom/HeroSection";
-import { headingAndImageSectionQuery } from "./queries/aboutSectionQuery";
+import { headingAndImageSectionQuery } from "./queries/headingAndImageSectionQuery";
+import { socialAndTextSectionQuery } from "./queries/socialAndTextSectionQuery";
 
-// type BlockComponent = 
-//   "layout.hero-section" | 
-//   "layout.feature-section" | 
-//   "layout.image-info-section" |
-//   "layout.testimonial-section" |
-//   "layout.step-by-step-section" |
-//   "layout.faq-section";
+type BlockComponent = 
+  "layout.hero-section" | 
+  "layout.feature-section" | 
+  "layout.image-info-section" |
+  "layout.testimonial-section" |
+  "layout.step-by-step-section" |
+  "layout.faq-section";
 
 const combinedQuery = {
     populate: {
@@ -29,8 +29,9 @@ const combinedQuery = {
                 ...imageInfoSectionQuery.populate, 
                 ...stepByStepSectionQuery.populate,
                 ...faqSectionQuery.populate,
-                ...testimonialSectionQuery.populate,
                 ...headingAndImageSectionQuery.populate,
+                ...testimonialSectionQuery.populate,
+                ...socialAndTextSectionQuery.populate,
             },
         },
     },

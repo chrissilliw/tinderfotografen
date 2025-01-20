@@ -12,6 +12,8 @@ import TestimonialSection from "./components/custom/TestimonialSection";
 import StepByStepSection from "./components/custom/StepByStepSection";
 import FaqSection from "./components/custom/FaqSection";
 import GallerySection from "./components/custom/GallerySection";
+import HeadingImageSection from "./components/custom/HeadingImageSection";
+import SocialTextSection from "./components/custom/SocialTextSection";
 
 function blockRenderer(block: any) {
   switch (block.__component) {
@@ -27,6 +29,10 @@ function blockRenderer(block: any) {
       return <TestimonialSection key={block.id} data={block} />;
     case "layout.faq-section":
       return <FaqSection key={block.id} data={block} />;
+    case "elements.heading-and-image":
+      return <HeadingImageSection key={block.id} data={block} />;
+    case "layout.social-and-text-section":
+      return <SocialTextSection key={block.id} data={block} />;
     default:
       return null;
   }
@@ -60,7 +66,6 @@ export default async function Home() {
         {blocks.map((block: any) => (
           <div key={block.id}> {blockRenderer(block)}</div>
         ))}
-        <GallerySection />
       </main>
     </>
   );

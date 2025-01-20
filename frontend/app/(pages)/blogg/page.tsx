@@ -1,8 +1,8 @@
-// "use client";
-// import React from "react";
+"use client";
+import React from "react";
 
-// const BlogPage = () => {
-//   return <div>Blogg page</div>;
-// };
+const BlogPage = () => {
+  return <div>Blogg page</div>;
+};
 
-// export default BlogPage;
+export default BlogPage;

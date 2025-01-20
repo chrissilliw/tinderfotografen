@@ -801,11 +801,7 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      [
-        'elements.heading-and-image',
-        'elements.social-and-text-section',
-        'elements.testimonial'
-      ]
+      ['elements.heading-and-image', 'elements.testimonial']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -952,7 +948,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'layout.faq-section',
         'layout.image-section',
         'elements.heading-and-image',
-        'elements.social-and-text-section'
+        'layout.social-and-text-section'
       ]
     >;
     createdAt: Attribute.DateTime;

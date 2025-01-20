@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_social_and_text_sections",
+  "info": {
+    "displayName": "Social and Text Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "socials": {
+      "displayName": "Socials",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.socials"
+    }
+  }
+}

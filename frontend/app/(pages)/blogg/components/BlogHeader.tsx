@@ -1,4 +1,6 @@
 import React from "react";
+import SearchButton from "./SearchButton";
+import SearchInput from "./SearchInput";
 
 const BlogHeader = () => {
   return (
@@ -8,6 +10,7 @@ const BlogHeader = () => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel
           exercitationem et distinctio
         </h1>
+        <SearchInput />
       </div>
     </div>
   );

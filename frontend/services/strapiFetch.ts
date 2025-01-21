@@ -50,8 +50,11 @@ const combinedQuery = {
 
 export const homePageQuery = qs.stringify(combinedQuery, {encodeValuesOnly: true});
 
+
+export const baseUrl = "http://localhost:1337";
+
 export const getStrapiData = async (path: string) => {
-    const baseUrl = "http://localhost:1337";;
+
 
     // const dynamicQuery = createDynamicQuery(blocks);
 
@@ -109,6 +112,20 @@ export const fetchTopNavMenu = async () => {
         return res;
     }; 
 
+
+
+        /*
+    export async function getGlobalPageMetadata() {
+        const url = new URL("/api", baseUrl);
+
+        url.search = qs.stringify({
+            fields: ["title", "description"]
+            
+        })
+        return await fetch(url.href);
+    }
+
+    */
 // export const fetchFeatureSection = async () => {
 //     const queryString = "/api/home-page?populate[blocks][populate][infoColumn][populate][feature][populate][icon][fields][0]=url&populate[blocks][populate][infoColumn][populate][feature][populate][icon][fields][1]=alternativeText&populate[blocks][populate][infoColumn][populate][readMore][populate]=true";
 //     const query = ({

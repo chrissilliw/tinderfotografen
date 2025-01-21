@@ -48,7 +48,7 @@ const HeroSection = ({ data }: Readonly<IHeroProps>) => {
   // console.log(data.image.url);
   return (
     <div className="py-10 flex h-[full] items-center justify-between mx-auto px-16 max-sm:px-3 lg:max-w-6xl rounded-3xl bg-slate-100">
-      <div className="z-10 W-1/2 max-w-lg flex flex-col gap-y-5">
+      <div className="z-10 w-1/2 max-w-lg flex flex-col gap-y-5">
         <h1 className="text-4xl font-bold text-neutral-800">{data.heading}</h1>
         <h3 className="text-lg text-neutral-600">{data.subHeading}</h3>
         <div className="flex items-center gap-4">

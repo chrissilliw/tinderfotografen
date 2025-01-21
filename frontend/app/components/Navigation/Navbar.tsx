@@ -41,7 +41,7 @@ const Navbar = () => {
     <>
       <div className="py-6 flex items-center justify-between mx-auto max-sm:px-3 lg:max-w-6xl">
         <div className="">
-          <Link href={logoLink}>
+          <Link href={logoLink.href}>
             <Image
               src={imageUrl}
               width={250}

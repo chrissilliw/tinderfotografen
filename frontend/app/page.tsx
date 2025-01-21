@@ -44,6 +44,7 @@ export default async function Home() {
   const { blocks } = strapiData || {};
 
   const baseURL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+  console.log(strapiData);
 
   if (!strapiData) {
     return <p>Loading...</p>;

@@ -45,7 +45,7 @@ const FaqSection = ({ data }: Readonly<FaqInfoProps>) => {
   return (
     <>
       <div className="py-[75px] bg-[#F8F8F8]">
-        <div className="mx-auto max-sm:px-3 lg:max-w-6xl">
+        <div className="mx-auto max-sm:px-3 lg:max-w-7xl">
           <h3 className="pb-4 text-center font-lora text-2xl font-semibold">
             {data.sectionTitle.sectionTitle}
           </h3>

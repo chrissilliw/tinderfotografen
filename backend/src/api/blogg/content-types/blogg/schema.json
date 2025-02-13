@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bloggs",
+  "info": {
+    "singularName": "blogg",
+    "pluralName": "bloggs",
+    "displayName": "Blogg",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 255
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "bloggs"
+    },
+    "summary": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "metaTitle": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "metaDescription": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255,
+      "private": true
+    }
+  }
+}

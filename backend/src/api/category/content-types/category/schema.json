@@ -22,6 +22,12 @@
       "relation": "manyToMany",
       "target": "api::blog.blog",
       "inversedBy": "categories"
+    },
+    "bloggs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blogg.blogg",
+      "mappedBy": "categories"
     }
   }
 }

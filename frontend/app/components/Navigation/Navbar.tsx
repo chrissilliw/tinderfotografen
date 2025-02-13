@@ -6,6 +6,7 @@ import { fetchTopNavMenu } from "@/services/strapiFetch";
 import { useEffect, useState } from "react";
 import CtaButton from "../Buttons/CtaButton";
 import React from "react";
+import ThemeToggle from "../themeToggle/ThemeToggle";
 
 const Navbar = () => {
   const [menuData, setMenuData] = useState<IData | undefined>(undefined);
@@ -15,7 +16,7 @@ const Navbar = () => {
       try {
         const topNavData = await fetchTopNavMenu();
         setMenuData(topNavData);
-        console.log(topNavData);
+        // console.log(topNavData);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -39,7 +40,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="py-6 flex items-center justify-between mx-auto max-sm:px-3 lg:max-w-6xl">
+      <div className="py-6 flex items-center justify-between mx-auto max-sm:px-3 lg:max-w-7xl">
         <div className="">
           <Link href={logoLink.href}>
             <Image
@@ -57,6 +58,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
+        <ThemeToggle />
         <CtaButton cta={cta} />
         {/* <div className="">
           <Link href={cta.href}>{cta.text}</Link>

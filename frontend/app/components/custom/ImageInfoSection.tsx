@@ -43,7 +43,7 @@ const ImageInfoSection = ({ data }: Readonly<ImageInfoProps>) => {
   }
   console.dir(data, { depth: null });
   return (
-    <div className="my-20 mx-auto max-sm:px-3 lg:max-w-6xl">
+    <div className="my-20 mx-auto max-sm:px-3 lg:max-w-7xl">
       <div
         className={`flex justify-between items-center gap-20 ${
           data.imagePositioning === "right" ? "flex-row-reverse" : ""

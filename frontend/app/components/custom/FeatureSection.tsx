@@ -39,7 +39,7 @@ const FeatureSection = ({ data }: Readonly<IFeatureSectionProps>) => {
   }
   console.dir(data, { depth: null });
   return (
-    <div className="my-20 mx-auto max-sm:px-3 lg:max-w-6xl">
+    <div className="my-20 mx-auto max-sm:px-3 lg:max-w-7xl">
       <div className="flex justify-between">
         <div className="flex flex-col justify-center gap-10">
           <div className="flex flex-col items-start gap-2 w-[350px]">

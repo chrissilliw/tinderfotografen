@@ -34,7 +34,7 @@ const StepByStepSection = ({ data }: Readonly<CardInfoProps>) => {
   }
   return (
     <>
-      <div className="my-20 mx-auto max-sm:px-3 lg:max-w-6xl">
+      <div className="my-20 mx-auto max-sm:px-3 lg:max-w-7xl">
         <h2 className="pb-4 text-center font-lora text-2xl font-semibold bg-white">
           {data.sectionTitle.sectionTitle}
         </h2>

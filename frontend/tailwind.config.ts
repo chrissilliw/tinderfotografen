@@ -16,6 +16,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      width: {
+        '7/10': '70%',
+        '3/10': '30%',
+      }
     },
   },
   plugins: [],

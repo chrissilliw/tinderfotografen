@@ -67,7 +67,7 @@ export const getStrapiData = async (path: string) => {
     url.search = homePageQuery;
 
     try{
-        const response = await fetch(url.href);
+        const response = await fetch(url.href ,{ cache: 'no-store'});
         if( !response.ok) {
             throw new Error(`Failed to fetch data from Strapi: ${response.status}`); 
         }
